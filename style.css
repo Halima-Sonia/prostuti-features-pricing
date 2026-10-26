@@ -1,0 +1,549 @@
+
+/* =========================
+   1. Global Styles
+========================= */
+
+:root {
+    --primary: #3156c9;
+    --primary-dark: #203d9a;
+    --ink: #1d2b4f;
+    --muted: #65708a;
+    --surface: #ffffff;
+    --background: #f5f7ff;
+    --border: #e3e8f4;
+    --success: #16845b;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    margin: 0;
+    font-family: "Hind Siliguri", sans-serif;
+    color: var(--ink);
+    background: var(--background);
+    line-height: 1.65;
+}
+
+a {
+    color: inherit;
+    text-decoration: none;
+}
+
+.container {
+    width: min(1120px, calc(100% - 40px));
+    margin: 0 auto;
+}
+
+/* =========================
+   2. Navigation Bar
+========================= */
+
+.site-header {
+    background: rgba(255, 255, 255, 0.94);
+    border-bottom: 1px solid var(--border);
+}
+
+.nav {
+    min-height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 20px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    font-size: 1.55rem;
+    font-weight: 700;
+}
+
+.brand-mark {
+    width: 43px;
+    height: 43px;
+    display: grid;
+    place-items: center;
+    border-radius: 13px;
+    color: white;
+    background: var(--primary);
+    font-size: 1.45rem;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    color: var(--muted);
+    font-weight: 500;
+}
+
+.nav-links a:hover {
+    color: var(--primary);
+}
+
+/* =========================
+   3. Buttons
+========================= */
+
+.button {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    border: 0;
+    border-radius: 12px;
+    padding: 12px 21px;
+    background: var(--primary);
+    color: #fff;
+    font: inherit;
+    font-weight: 600;
+    transition: transform 0.2s ease,
+                background 0.2s ease,
+                box-shadow 0.2s ease;
+    cursor: pointer;
+}
+
+.button:hover {
+    background: var(--primary-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 9px 22px #3156c933;
+}
+
+.button-outline {
+    color: var(--primary);
+    background: #fff;
+    border: 1px solid #d8e0ff;
+}
+
+.button-outline:hover {
+    color: #fff;
+}
+
+/* =========================
+   4. Hero Section
+========================= */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    padding: 82px 0 76px;
+    background: linear-gradient(
+        130deg,
+        #edf1ff 0%,
+        #f7f8ff 52%,
+        #e7edff 100%
+    );
+    text-align: center;
+}
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    border-radius: 50%;
+    pointer-events: none;
+    background: #3156c90b;
+    border: 1px solid #3156c91a;
+}
+
+.hero::before {
+    width: 280px;
+    height: 280px;
+    left: -100px;
+    top: -110px;
+}
+
+.hero::after {
+    width: 360px;
+    height: 360px;
+    right: -150px;
+    bottom: -220px;
+}
+
+.eyebrow {
+    display: inline-block;
+    padding: 6px 14px;
+    border-radius: 999px;
+    color: var(--primary);
+    background: #fff;
+    border: 1px solid #dce4ff;
+    font-weight: 600;
+    margin-bottom: 16px;
+}
+
+h1 {
+    max-width: 800px;
+    margin: 0 auto 16px;
+    font-size: clamp(2.2rem, 5vw, 3.65rem);
+    line-height: 1.2;
+    letter-spacing: -0.7px;
+}
+
+.hero p {
+    max-width: 660px;
+    margin: 0 auto 28px;
+    color: var(--muted);
+    font-size: 1.13rem;
+}
+
+.hero-actions {
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+/* =========================
+   5. Section Headings
+========================= */
+
+section {
+    padding: 76px 0;
+}
+
+.section-heading {
+    max-width: 680px;
+    margin: 0 auto 36px;
+    text-align: center;
+}
+
+.section-heading h2 {
+    margin: 0 0 9px;
+    font-size: clamp(1.8rem, 4vw, 2.5rem);
+    line-height: 1.25;
+}
+
+.section-heading p {
+    color: var(--muted);
+    margin: 0;
+}
+
+/* =========================
+   6. Feature Cards
+========================= */
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 20px;
+}
+
+.feature-card {
+    padding: 26px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 19px;
+    box-shadow: 0 5px 20px #1d2b4f05;
+    transition: transform 0.22s ease,
+                box-shadow 0.22s ease,
+                border-color 0.22s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 15px 34px #203d9a12;
+    border-color: #c4d1ff;
+}
+
+.feature-icon {
+    width: 54px;
+    height: 54px;
+    display: grid;
+    place-items: center;
+    border-radius: 16px;
+    background: #edf1ff;
+    color: var(--primary);
+    font-size: 1.65rem;
+    margin-bottom: 17px;
+}
+
+.feature-card h3 {
+    margin: 0 0 7px;
+    font-size: 1.25rem;
+}
+
+.feature-card p {
+    margin: 0;
+    color: var(--muted);
+}
+
+/* =========================
+   7. Pricing Section
+========================= */
+
+.pricing-section {
+    background: #eef2ff;
+}
+
+.pricing-grid {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 22px;
+    align-items: stretch;
+}
+
+.pricing-card {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 22px;
+    padding: 30px;
+    box-shadow: 0 8px 25px #1d2b4f08;
+    transition: transform 0.22s ease,
+                box-shadow 0.22s ease;
+}
+
+.pricing-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 17px 38px #1d2b4f13;
+}
+
+/* Popular Plan */
+
+.pricing-card.popular {
+    background: var(--primary);
+    color: #fff;
+    border-color: var(--primary);
+    transform: translateY(-8px);
+}
+
+.pricing-card.popular:hover {
+    transform: translateY(-13px);
+}
+
+.popular-badge {
+    position: absolute;
+    top: -14px;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 4px 16px;
+    border-radius: 999px;
+    background: #ffd166;
+    color: #49340a;
+    font-size: 0.9rem;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.plan-name {
+    font-size: 1.15rem;
+    font-weight: 600;
+    margin-bottom: 8px;
+}
+
+.price {
+    font-size: 2.5rem;
+    line-height: 1.25;
+    font-weight: 700;
+    margin-bottom: 5px;
+}
+
+.price small {
+    font-size: 0.95rem;
+    font-weight: 400;
+    color: var(--muted);
+}
+
+.popular .price small,
+.popular .plan-description,
+.popular .plan-features {
+    color: #e3e9ff;
+}
+
+.plan-description {
+    color: var(--muted);
+    margin: 0 0 20px;
+}
+
+.plan-divider {
+    border: 0;
+    border-top: 1px solid var(--border);
+    width: 100%;
+    margin: 5px 0 19px;
+}
+
+.popular .plan-divider {
+    border-color: #ffffff40;
+}
+
+/* Pricing Feature List */
+
+.plan-features {
+    list-style: none;
+    padding: 0;
+    margin: 0 0 25px;
+    color: #46536e;
+    flex: 1;
+}
+
+.plan-features li {
+    margin: 11px 0;
+}
+
+.plan-features li::before {
+    content: "✓";
+    color: var(--success);
+    font-weight: 700;
+    margin-right: 9px;
+}
+
+.popular .plan-features li::before {
+    color: #baf3d7;
+}
+
+.pricing-card .button {
+    width: 100%;
+}
+
+.popular .button {
+    color: var(--primary);
+    background: #fff;
+}
+
+.popular .button:hover {
+    background: #edf1ff;
+}
+
+.pricing-note {
+    text-align: center;
+    color: var(--muted);
+    margin: 25px 0 0;
+    font-size: 0.92rem;
+}
+
+/* =========================
+   8. Call to Action
+========================= */
+
+.cta {
+    padding: 55px 0;
+    background: #fff;
+    text-align: center;
+}
+
+.cta h2 {
+    margin: 0 0 10px;
+    font-size: clamp(1.7rem, 4vw, 2.3rem);
+}
+
+.cta p {
+    color: var(--muted);
+    margin: 0 auto 22px;
+}
+
+/* =========================
+   9. Footer
+========================= */
+
+footer {
+    padding: 23px 0;
+    text-align: center;
+    color: var(--muted);
+    border-top: 1px solid var(--border);
+    background: #fff;
+}
+
+footer p {
+    margin: 0;
+}
+
+/* =========================
+   10. Responsive Design
+========================= */
+
+@media (max-width: 850px) {
+    .features-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+    }
+
+    .pricing-grid {
+        grid-template-columns: 1fr;
+        max-width: 520px;
+        margin: 0 auto;
+        gap: 25px;
+    }
+
+    .pricing-card.popular {
+        transform: none;
+    }
+
+    .pricing-card.popular:hover {
+        transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 560px) {
+    .container {
+        width: min(100% - 28px, 1120px);
+    }
+
+    .nav {
+        min-height: 68px;
+    }
+
+    .nav-links {
+        gap: 12px;
+        font-size: 0.9rem;
+    }
+
+    .nav-links .nav-pricing {
+        display: none;
+    }
+
+    .nav .button {
+        padding: 9px 13px;
+    }
+
+    .brand {
+        font-size: 1.25rem;
+        gap: 8px;
+    }
+
+    .brand-mark {
+        width: 37px;
+        height: 37px;
+    }
+
+    .hero {
+        padding: 64px 0 58px;
+    }
+
+    section {
+        padding: 58px 0;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+        gap: 14px;
+    }
+
+    .feature-card {
+        padding: 22px;
+    }
+
+    .pricing-card {
+        padding: 26px 23px;
+    }
+}
+
+/* Respect reduced-motion preferences */
+
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition: none !important;
+    }
+}
